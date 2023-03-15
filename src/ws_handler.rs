@@ -43,6 +43,5 @@ impl WsHandler {
 fn test_default() {
     let mut default_handler = WsHandler::default();
     default_handler.port = 8080;
-    println!("{:?}", default_handler);
     assert_eq!(8080, default_handler.port);
 }

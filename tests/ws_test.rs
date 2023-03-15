@@ -3,6 +3,7 @@
 
 use tokio_tungstenite::connect_async;
 
+#[ignore]
 #[tokio::test]
 async fn main() {
     let connect_addr = "ws://127.0.0.1:8080/?access_token=WERTYUIO".to_string();

@@ -4,7 +4,7 @@
 #[derive(Debug)]
 pub struct WsHandler {
     host: String,
-    port: i32,
+    port: u16,
     token: String,
 }
 

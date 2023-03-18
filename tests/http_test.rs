@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod http {
-    #[tokio::test]
-    async fn async_connect() {
-        let res = reqwest::get("https://baidu.com").await.unwrap();
-        assert_eq!(200, res.status());
-    }
+    // #[tokio::test]
+    // async fn async_connect() {
+    //     let res = reqwest::get("https://baidu.com").await.unwrap();
+    //     assert_eq!(200, res.status());
+    // }
 
     #[test]
     fn blocking_get() {

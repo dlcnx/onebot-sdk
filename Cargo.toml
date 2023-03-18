@@ -1,5 +1,5 @@
 [package]
-name = "go_cqhttp_sdk"
+name = "onebot_sdk"
 version = "0.1.0"
 edition = "2021"
 

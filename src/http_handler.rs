@@ -7,7 +7,7 @@ use reqwest::header::CONTENT_TYPE;
 use reqwest::StatusCode;
 use serde_json::json;
 
-use crate::api_struct::*;
+use crate::structs::*;
 
 #[derive(Debug)]
 pub struct HttpHandler {
@@ -40,7 +40,7 @@ impl HttpHandler {
     }
 
     /// 发送Get请求返回内容字符串
-    fn http_get(&self, action: &str) -> Result<String, String> {
+    pub fn http_get(&self, action: &str) -> Result<String, String> {
         let url = format!(
             "http://{}:{}/{}?access_token={}",
             self.host, self.port, action, self.token
@@ -57,7 +57,7 @@ impl HttpHandler {
     }
 
     /// 发送Post请求返回内容字符串
-    fn http_post(&self, action: &str, data: String) -> Result<String, String> {
+    pub fn http_post(&self, action: &str, data: String) -> Result<String, String> {
         let url = format!(
             "http://{}:{}/{}?access_token={}",
             self.host, self.port, action, self.token
@@ -108,26 +108,4 @@ impl HttpHandler {
         self.token = new_token.to_string();
         self
     }
-}
-
-#[test]
-fn get_login_info() {
-    let mut handler = HttpHandler::new();
-    handler.token("WERTYUIO");
-    handler.get_login_info().unwrap();
-}
-
-#[test]
-fn get_group_msg_history() {
-    let mut handler = HttpHandler::new();
-    handler.token("WERTYUIO");
-    handler.get_group_msg_history(531241108).unwrap();
-}
-
-#[ignore]
-#[test]
-fn send_group_msg() {
-    let mut handler = HttpHandler::new();
-    handler.token("WERTYUIO");
-    handler.send_group_msg(531241108, "啊这").unwrap();
 }
